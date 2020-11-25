@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convert</title>
+	<style>
+		div{
+            padding-top: 5px;
+            margin-top: 150px;
+            margin-left: 30%;
+            background-color: #B97910;
+            width: 500px;
+            height: auto;
+            padding-bottom: 15px;
+
+        }
+        p{
+            color: #D1CDC7;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        
+        .txt{
+            font-size: 20px;
+            font-weight: 900;
+            color: #353331;
+        }
+
+        button{
+             background-color: #FB9803;
+             padding: 10px 20px;
+             color: #D1CDC7;
+             border:1px solid #D1CDC7;
+             font-weight: 800;
+             border-radius: 10px;
+
+        }
+        input[type=number], select{
+            padding: 12px 20px;
+            border:1px solid #D1CDC7;
+            border-radius: 10px;
+        }
+	</style>
+</head>
+<body>
+	<div>
+	<center>
+	<h1><u>Temperature Converter</u></h1>
+<label class="txt">Select Temperature</label><br><br>
+<select id="temp">
+	<option value="se" class="txt">Select Option</option>
+	<option value="fa" class="txt">Farenheit</option>
+	<option value="ce" class="txt">Celcius</option>
+</select><br>
+<br>
+<label class="txt">Enter Temperature: </label><input type="number" name="text" id="txt"><br><br>
+<button  onclick="convert();">Convert Temperature!</button>
+<p id="demo"></p>
+</center>
+</div>
+<script>
+	var result;
+	var a;
+	function convert()
+	{
+		a=document.getElementById("txt").value
+		var valueSelect=document.getElementById("temp").value;
+			console.log(valueSelect);
+
+            if(valueSelect=='fa'){
+            	var result = (a - 32) * (5 / 9);
+            	var res=result.toFixed(2);
+            	document.getElementById("demo").innerHTML=res+"&deg;C";
+            }
+            else if(valueSelect=='ce'){
+            	var result = ((a * 9) / 5) + 32;
+            	var res=result.toFixed(2);
+            	document.getElementById("demo").innerHTML=res+"&deg;C";
+            }
+            else
+            	document.getElementById("demo").innerHTML="Please select temperature";
+
+	}
+</script>
+</body>
+</html>
